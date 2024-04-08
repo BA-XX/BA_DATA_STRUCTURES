@@ -34,17 +34,8 @@ Stack::Stack()
 }
 Stack::~Stack()
 {
-    if (!isEmpty())
-    {
-        Node *temp = head;
-
-        while (temp != nullptr)
-        {
-            Node *temp2 = temp;
-            temp = temp->getNext();
-            delete temp2;
-        }
-    }
+    while (!isEmpty())
+        pop();
 }
 
 bool Stack::isEmpty()
