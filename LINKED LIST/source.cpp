@@ -47,19 +47,14 @@ bool LinkedList::isEmpty()
 }
 void LinkedList::deleteList()
 {
-    if (isEmpty())
-        return;
-
-    Node *temp = head;
-
-    while (temp != nullptr)
+    while (!isEmpty())
     {
-        Node *temp2 = temp;
-        temp = temp->getNext();
+        Node *temp2 = head;
+        head = head->getNext();
         delete (temp2);
     }
 
-    head = tail = nullptr;
+    tail = nullptr;
 }
 
 data_type LinkedList::getHeadData()
