@@ -1,4 +1,4 @@
-#include "header.hpp"
+#include "Stack.hpp"
 /* Class Node */
 
 Node::Node(data_type data)
