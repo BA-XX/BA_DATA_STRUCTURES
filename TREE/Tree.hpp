@@ -24,9 +24,11 @@ public:
     Node *getRightChild();
 };
 
-class Tree{
-    Node* root;
+class Tree
+{
+    Node *root;
 
-    public:
+public:
     Tree();
+    
 };
