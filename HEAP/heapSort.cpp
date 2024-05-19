@@ -21,11 +21,11 @@ int main()
     int ab[] = {23, 323, 22, 1, 2, 4, 5, 55, 33, 4};
 
     heapSort(ab, 10);
-    for (size_t i = 0; i < 10; i++) // extract all element form the heap
+    for (size_t i = 0; i < 10; i++) // print the result
         std::cout << ab[i] << "   ";
 
     std::cout << std::endl;
     heapSort(ab, 10, true);
-    for (size_t i = 0; i < 10; i++) // extract all element form the heap
+    for (size_t i = 0; i < 10; i++) // print the result
         std::cout << ab[i] << "   ";
 }
