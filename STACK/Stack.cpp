@@ -1,65 +1,78 @@
-#include "Stack.hpp"
-/* Class Node */
+#include "stack.hpp"
 
-Node::Node(data_type data)
+/* Class Node */
+template <typename T>
+Node<T>::Node(T data)
 {
     this->data = data;
     next = nullptr;
 }
 
-void Node::setNext(Node *next)
+template <typename T>
+void Node<T>::setNext(Node<T> *next)
 {
     this->next = next;
 }
-Node *Node::getNext()
+
+template <typename T>
+Node<T> *Node<T>::getNext()
 {
     return next;
 }
 
-void Node::setData(data_type data)
+template <typename T>
+void Node<T>::setData(T data)
 {
     this->data = data;
 }
-data_type Node::getData()
+template <typename T>
+T Node<T>::getData()
 {
     return data;
 }
-/* End class Node*/
+/* End class Node<T>*/
 
 /* Class Stack*/
-Stack::Stack()
+template <typename T>
+Stack<T>::Stack()
 {
     head = nullptr;
     size = 0;
 }
-Stack::~Stack()
+
+template <typename T>
+Stack<T>::~Stack()
 {
     while (!isEmpty())
         pop();
 }
 
-bool Stack::isEmpty()
+template <typename T>
+bool Stack<T>::isEmpty()
 {
     return (head == nullptr);
 }
-void Stack::push(data_type data)
+
+template <typename T>
+void Stack<T>::push(T data)
 {
-    Node *temp = new Node(data); // create a new stack element
+    Node<T> *temp = new Node<T>(data); // create a new stack element
     temp->setNext(head);
     head = temp; // change the value of the head
     ++size;      // increase the size
 }
-data_type Stack::pop()
+template <typename T>
+T Stack<T>::pop()
 {
     if (isEmpty())
     {
-        std::cerr << "Stack is Empty" << std::endl;
+        throw "Stack is Empty";
         return 0;
     }
 
-    data_type data = head->getData(); // save the head data
+    T data = head->getData(); // save the head data
 
-    Node *temp = head; // save the head
+    Node<T> *temp = head; // save the head
 
     head = head->getNext(); // change the head to the next node in the stack
 
@@ -69,18 +82,21 @@ data_type Stack::pop()
 
     return data;
 }
-data_type Stack::top()
+
+template <typename T>
+T Stack<T>::top()
 {
     if (isEmpty())
     {
-        std::cerr << "Stack is Empty" << std::endl;
+        throw "Stack is Empty";
         return 0;
     }
 
     return head->getData();
 }
 
-size_t Stack::getSize()
+template <typename T>
+int Stack<T>::getSize()
 {
     return size;
 }

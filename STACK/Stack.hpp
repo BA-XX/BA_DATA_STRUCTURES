@@ -1,37 +1,35 @@
 #pragma once
 
-#include <iostream>
-
-typedef int data_type;
-
+template <typename T>
 class Node
 {
-    data_type data;
+    T data;
     Node *next;
 
 public:
-    Node(data_type);
+    Node(T);
 
     void setNext(Node *);
     Node *getNext();
 
-    void setData(data_type);
-    data_type getData();
+    void setData(T);
+    T getData();
 };
 
+template <typename T>
 class Stack
 {
-    Node *head;
-    size_t size;
+    Node<T> *head;
+    int size;
 
 public:
     Stack();
     ~Stack();
 
     bool isEmpty();
-    void push(data_type);
-    data_type pop();
-    data_type top();
+    void push(T);
+    T pop();
+    T top();
 
-    size_t getSize();
+    int getSize();
 };
